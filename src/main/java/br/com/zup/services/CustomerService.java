@@ -101,4 +101,19 @@ public class CustomerService {
 			throw new DataIntegrityException("Não é possível excluir porque há pedidos relacionados");
 		}
 	}
+
+	/**
+	 * Método para inserir um novo cliente 
+	 * 
+	 * @param obj
+	 * @return
+	 */
+	public void insert(Customer obj) {
+		try {
+			obj.setId(null);
+			obj = customerRepository.save(obj);
+		}catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityException("Esse email já consta na nossa base de dados...");
+		}
+	}
 }

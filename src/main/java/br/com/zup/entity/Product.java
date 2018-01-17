@@ -22,6 +22,10 @@ public class Product implements Serializable {
 	
 	@Column(name = "price")
 	private Double price;
+	
+	public Product() {
+		
+	}
 
 	public Product(Integer id, String name, Double price) {
 		super();

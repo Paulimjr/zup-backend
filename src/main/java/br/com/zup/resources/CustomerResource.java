@@ -1,5 +1,6 @@
 package br.com.zup.resources;
 
+import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.zup.dto.CustomerDTO;
 import br.com.zup.entity.Customer;
@@ -28,7 +30,39 @@ import br.com.zup.services.CustomerService;
 public class CustomerResource {
 	
 	@Autowired
-	private CustomerService customerService; 
+	private CustomerService customerService;
+	
+	/**
+	 * API para inserir um cliente
+	 * 
+	 * @param objDto
+	 * @return
+	 */
+	@RequestMapping(method=RequestMethod.POST)
+	public ResponseEntity<Void> insert(@RequestBody CustomerDTO objDto) {
+		Customer obj = customerService.fromDTO(objDto);
+		customerService.insert(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(obj.getId()).toUri();
+		return ResponseEntity.created(uri).build();
+	}
+	
+	/**
+	 * API para alterar dados de um cliente
+	 * 
+	 * @param objDto o noov objeto
+	 * @param id o identificador do cliente
+	 * @return
+	 */
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> update(@Valid @RequestBody CustomerDTO cliDto, @PathVariable Integer id) {
+		Customer cli = customerService.fromDTO(cliDto);
+		cli.setId(id);
+		
+		cli = customerService.update(cli);
+		
+		return ResponseEntity.noContent().build();
+	}
 	
 	/**
 	 * API para trazer todos os clientes
@@ -54,23 +88,6 @@ public class CustomerResource {
 	public ResponseEntity<?> buscarClientePeloId(@PathVariable final Integer id) {
 		Customer cli = this.customerService.findById(id);
 		return  ResponseEntity.ok().body(cli);
-	}
-	
-	/**
-	 * API para alterar dados de um cliente
-	 * 
-	 * @param objDto o noov objeto
-	 * @param id o identificador do cliente
-	 * @return
-	 */
-	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
-	public ResponseEntity<Void> update(@Valid @RequestBody CustomerDTO cliDto, @PathVariable Integer id) {
-		Customer cli = customerService.fromDTO(cliDto);
-		cli.setId(id);
-		
-		cli = customerService.update(cli);
-		
-		return ResponseEntity.noContent().build();
 	}
 	
 	/**
