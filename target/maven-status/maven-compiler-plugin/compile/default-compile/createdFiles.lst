@@ -1,0 +1,5 @@
+br/com/projeto/pedido/ProjetoPedidoApplication.class
+br/com/projeto/pedido/service/CategoriaService.class
+br/com/projeto/pedido/entity/Categoria.class
+br/com/projeto/pedido/repository/CategoriaRepository.class
+br/com/projeto/pedido/resources/CategoriaResource.class
