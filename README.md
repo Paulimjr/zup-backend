@@ -17,7 +17,7 @@
 - 4 Abra o projeto em sua IDE (ex: Eclipse ou NetBeans) importe o projeto e rode.
 
 - ENDPOINTS
-   - /categorias/{id} - Retorna a categoria pelo ID.
-   - /clientes/{id} - Retorna o cliente pelo ID.
+   - /customers - Retorna todos os clientes.
+   - /customers/{id} - Retorna o cliente pelo ID.
 
 
