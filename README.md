@@ -17,7 +17,19 @@
 - 4 Abra o projeto em sua IDE (ex: Eclipse ou NetBeans) importe o projeto e rode.
 
 - ENDPOINTS
-   - /customers - Retorna todos os clientes.
-   - /customers/{id} - Retorna o cliente pelo ID.
+
+# Customers
+   - GET - /customers - Retorna todos os clientes
+   - GET - /customers/{id} - Retorna o cliente pelo ID
+   - PUT - /customers/{id} - Alterar um cliente (passando o body)
+   - DELETE - /customers - Deletar um cliente
+
+
+# Products
+   - GET - /products - Retorna todos os produtos
+   - GET - /products/{id} - Retorna o produto pelo ID
+   - PUT - /products/{id} - Alterar um produto (passando o body)
+   - DELETE - /products - Deletar um produto
+      
 
 
