@@ -36,6 +36,10 @@ public class Customer implements Serializable {
 	private List<Order> orders = new ArrayList<>();
 	
 	
+	public Customer() {
+		super();
+	}
+
 	public Customer(Integer id, String name, String email) {
 		super();
 		this.id = id;
