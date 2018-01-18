@@ -38,7 +38,7 @@
    - PUT - /products/{id} - Alterar um produto (passando o body)
    - DELETE - /products/{id} - Deletar um produto
    
-# Products
+# Orders
    - GET - /orders - Retorna todos os pedidos
    - GET - /orders/{id} - Retorna o pedido pelo ID
       
