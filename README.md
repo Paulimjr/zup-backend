@@ -19,6 +19,8 @@
 - 5 Abra o projeto em sua IDE (ex: Eclipse ou NetBeans) importe o projeto e rode.
 	- Outra opção para rodar também pelo terminal.
 	- Execute o comando: mvn spring-boot:run
+	
+- 6 Para verificar onde os dados estão salvos basta acessar o link: http://localhost:8080/h2-console
 
 - ENDPOINTS
 
