@@ -1,5 +1,8 @@
 package br.com.zup.services;
 
+import static org.mockito.Mockito.doCallRealMethod;
+import static org.mockito.Mockito.verify;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +43,8 @@ public class ProductServiceTest {
 		Mockito.when(productService.findAll()).thenReturn(getMockProducts());
 		List<Product> products = productService.findAll();
 		Assert.assertEquals(products, getMockProducts());
+		
+		verify(productService).findAll();
 	}
 		
 	/**
@@ -50,6 +55,8 @@ public class ProductServiceTest {
 		Mockito.when(productService.findById(1)).thenReturn(getMockProducts().get(0));
 		Product prod = productService.findById(1);
 		Assert.assertEquals(prod, getMockProducts().get(0));
+		
+		verify(productService).findById(1);
 	}
 	
 	/**
@@ -63,6 +70,16 @@ public class ProductServiceTest {
 		Mockito.when(productService.update(getMockProducts().get(0))).thenReturn(prodUpdate);
 		Product prod = productService.update(getMockProducts().get(0));
 		Assert.assertEquals(prod, prodUpdate);
+		
+		verify(productService).update(getMockProducts().get(0));
+	}
+	
+	/**
+	 * Test for insert
+	 */
+	@Test
+	public void test4insert() {
+		doCallRealMethod().when(productService).insert(getMockProducts().get(0));
 	}
 	
 	/**

@@ -1,5 +1,8 @@
 package br.com.zup.services;
 
+import static org.mockito.Mockito.doCallRealMethod;
+import static org.mockito.Mockito.verify;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +44,8 @@ public class CustomerServiceTest {
 		Mockito.when(customerService.findAll()).thenReturn(getMockCustomers());
 		List<Customer> customers = customerService.findAll();
 		Assert.assertEquals(customers, getMockCustomers());
+		
+		verify(customerService).findAll();
 	}
 		
 	/**
@@ -51,6 +56,8 @@ public class CustomerServiceTest {
 		Mockito.when(customerService.findById(1)).thenReturn(getMockCustomers().get(0));
 		Customer customer = customerService.findById(1);
 		Assert.assertEquals(customer, getMockCustomers().get(0));
+		
+		verify(customerService).findById(1);
 	}
 	
 	/**
@@ -64,6 +71,16 @@ public class CustomerServiceTest {
 		Mockito.when(customerService.update(getMockCustomers().get(0))).thenReturn(customerUpdate);
 		Customer customer = customerService.update(getMockCustomers().get(0));
 		Assert.assertEquals(customer, customerUpdate);
+		
+		verify(customerService).update(getMockCustomers().get(0));
+	}
+	
+	/**
+	 * Test for insert
+	 */
+	@Test
+	public void test4insert() {
+		doCallRealMethod().when(customerService).insert(getMockCustomers().get(0));
 	}
 	
 	/**
