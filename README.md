@@ -27,6 +27,7 @@
 # Customers
    - GET - /customers - Retorna todos os clientes
    - GET - /customers/{id} - Retorna o cliente pelo ID
+   - GET - /customers/page?{linesPerPage, page, direction} - Buscar o cliente com paginação
    - PUT - /customers/{id} - Alterar um cliente (passando o body)
    - DELETE - /customers/{id} - Deletar um cliente
 
