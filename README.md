@@ -14,7 +14,7 @@
 - 3 Crie uma pasta ex: "zup-backend", abra o terminal e efetue o clone do projeto com o comando abaixo:
     git clone https://github.com/Paulimjr/xy-inc.git
    
-- 4 Dentro da pasta do projeto execute o comando pelo terminal: mvn clean install
+- 4 Dentro da pasta do projeto execute o comando pelo terminal: mvn clean install (com testes) - mvn clean install -DskipTests  (sem os testes)
 
 - 5 Abra o projeto em sua IDE (ex: Eclipse ou NetBeans) importe o projeto e rode.
 	- Outra opção para rodar também pelo terminal.
@@ -28,14 +28,14 @@
    - GET - /customers - Retorna todos os clientes
    - GET - /customers/{id} - Retorna o cliente pelo ID
    - PUT - /customers/{id} - Alterar um cliente (passando o body)
-   - DELETE - /customers - Deletar um cliente
+   - DELETE - /customers/{id} - Deletar um cliente
 
 
 # Products
    - GET - /products - Retorna todos os produtos
    - GET - /products/{id} - Retorna o produto pelo ID
    - PUT - /products/{id} - Alterar um produto (passando o body)
-   - DELETE - /products - Deletar um produto
+   - DELETE - /products/{id} - Deletar um produto
    
 # Products
    - GET - /orders - Retorna todos os pedidos
