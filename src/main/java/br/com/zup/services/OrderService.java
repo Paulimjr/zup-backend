@@ -3,19 +3,14 @@ package br.com.zup.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import br.com.zup.dto.ProductDTO;
-import br.com.zup.entity.Order;
-import br.com.zup.entity.Product;
-import br.com.zup.exceptions.DataIntegrityException;
+import br.com.zup.entity.Orders;
 import br.com.zup.exceptions.ObjectNotFoundException;
 import br.com.zup.repository.OrderRepository;
-import br.com.zup.repository.ProductRepository;
 
 /**
- * Controlar serviços de pedidos
+ * Controlar serviços de {@link Orders}
  * 
  * @author paulo
  *
@@ -31,7 +26,7 @@ public class OrderService {
 	 * 
 	 * @return 
 	 */
-	public List<Order> findAll() {
+	public List<Orders> findAll() {
 		return orderRepository.findAll();
 	}
 
@@ -43,13 +38,13 @@ public class OrderService {
 	 * @param id o identificador do pedido
 	 * @return o pedido caso encontre.
 	 */
-	public Order findById(final Integer id) {
-		Order order = orderRepository.findOne(id);
+	public Orders findById(final Integer id) {
+		Orders orders = orderRepository.findOne(id);
 		
-		if (order == null) {
+		if (orders == null) {
 			throw new ObjectNotFoundException(String.format("Pedido com o ID %s não foi encontrado.", id));
 		}
 		
-		return order;
+		return orders;
 	}
 }

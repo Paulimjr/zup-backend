@@ -2,10 +2,7 @@ package br.com.zup.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 @Entity
 public class Customer implements Serializable {
@@ -33,7 +29,7 @@ public class Customer implements Serializable {
 	
 	@JsonIgnore
 	@OneToMany(mappedBy="customer")
-	private List<Order> orders = new ArrayList<>();
+	private List<Orders> orders = new ArrayList<>();
 	
 	
 	public Customer() {
@@ -92,14 +88,14 @@ public class Customer implements Serializable {
 	/**
 	 * @return the orders
 	 */
-	public List<Order> getOrders() {
+	public List<Orders> getOrders() {
 		return orders;
 	}
 
 	/**
 	 * @param orders the orders to set
 	 */
-	public void setOrders(List<Order> orders) {
+	public void setOrders(List<Orders> orders) {
 		this.orders = orders;
 	}
 	

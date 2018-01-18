@@ -13,8 +13,12 @@
 
 - 3 Crie uma pasta ex: "zup-backend", abra o terminal e efetue o clone do projeto com o comando abaixo:
     git clone https://github.com/Paulimjr/xy-inc.git
-    
-- 4 Abra o projeto em sua IDE (ex: Eclipse ou NetBeans) importe o projeto e rode.
+   
+- 4 Dentro da pasta do projeto execute o comando pelo terminal: mvn clean install
+
+- 5 Abra o projeto em sua IDE (ex: Eclipse ou NetBeans) importe o projeto e rode.
+	- Outra opção para rodar também pelo terminal.
+	- Execute o comando: mvn spring-boot:run
 
 - ENDPOINTS
 
@@ -30,6 +34,10 @@
    - GET - /products/{id} - Retorna o produto pelo ID
    - PUT - /products/{id} - Alterar um produto (passando o body)
    - DELETE - /products - Deletar um produto
+   
+# Products
+   - GET - /orders - Retorna todos os pedidos
+   - GET - /orders/{id} - Retorna o pedido pelo ID
       
 
 

@@ -24,9 +24,9 @@ public class ItemOrder implements Serializable {
 		
 	}
 
-	public ItemOrder(Order order, Product product, Double desconto, Integer amount, Double price) {
+	public ItemOrder(Orders orders, Product product, Double desconto, Integer amount, Double price) {
 		super();
-		id.setOrder(order);
+		id.setOrder(orders);
 		id.setProduct(product);
 		this.discount = desconto;
 		this.amount = amount;
@@ -34,14 +34,14 @@ public class ItemOrder implements Serializable {
 	}
 	
 	@JsonIgnore
-	public Order getPedido() {
+	public Orders getPedido() {
 		return id.getOrder();
 	}
 	
 	public Product getProduto() {
 		return id.getProduct();
 	}
-
+	
 	/**
 	 * @return the id
 	 */
@@ -96,6 +96,49 @@ public class ItemOrder implements Serializable {
 	 */
 	public void setPreco(Double preco) {
 		this.price = preco;
+	}
+	
+
+	/**
+	 * @return the discount
+	 */
+	public Double getDiscount() {
+		return discount;
+	}
+
+	/**
+	 * @param discount the discount to set
+	 */
+	public void setDiscount(Double discount) {
+		this.discount = discount;
+	}
+
+	/**
+	 * @return the amount
+	 */
+	public Integer getAmount() {
+		return amount;
+	}
+
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+	}
+
+	/**
+	 * @return the price
+	 */
+	public Double getPrice() {
+		return price;
+	}
+
+	/**
+	 * @param price the price to set
+	 */
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
 	/* (non-Javadoc)
