@@ -13,6 +13,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.zup.entity.Customer;
@@ -81,6 +83,20 @@ public class CustomerServiceTest {
 	@Test
 	public void test4insert() {
 		doCallRealMethod().when(customerService).insert(getMockCustomers().get(0));
+	}
+	
+	/**
+	 * Test for paginate
+	 */
+	@Test
+	public void test4page() {
+		Page<Customer> pagedResponse = new PageImpl<Customer>(getMockCustomers());
+		
+		Mockito.when(customerService.findPage(1, 1, "DESC", "Teste 1")).thenReturn(pagedResponse);
+		Page<Customer> result = customerService.findPage(1, 1, "DESC", "Teste 1");
+		Assert.assertEquals(result, pagedResponse);
+		
+		verify(customerService).findPage(1, 1, "DESC", "Teste 1");
 	}
 	
 	/**
