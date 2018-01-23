@@ -13,6 +13,7 @@
 
 #Gradle temporary files
 target/
+.mvn/
 
 #Eclipse files
 **/.project
@@ -20,6 +21,7 @@ target/
 **/.settings/
 blog/bin/
 **/.tern-project
+**/.mvn/
 
 #IntelliJ files
 **/*.iml
